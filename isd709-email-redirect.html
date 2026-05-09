@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Send Your Message to the ISD 709 School Board</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background-color: #f5f1eb;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .container {
+      max-width: 640px;
+      width: 100%;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #c0392b;
+      color: #fff;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #1a1a1a;
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      border-left: 3px solid #c0392b;
+      padding-left: 1rem;
+    }
+
+    .form-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid #ccc;
+      border-radius: 3px;
+      font-family: Georgia, serif;
+      font-size: 15px;
+      color: #1a1a1a;
+      background: #fafaf8;
+      transition: border-color 0.15s;
+      outline: none;
+    }
+
+    input[type="text"]:focus {
+      border-color: #c0392b;
+      background: #fff;
+    }
+
+    .send-btn {
+      width: 100%;
+      padding: 14px;
+      background: #c0392b;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-top: 0.5rem;
+    }
+
+    .send-btn:hover { background: #a93226; }
+    .send-btn:active { background: #922b21; }
+
+    .preview-section {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .preview-header {
+      background: #f0ebe2;
+      border-bottom: 1px solid #ddd;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .preview-header span {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #666;
+    }
+
+    .preview-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #c0392b;
+      display: inline-block;
+    }
+
+    .preview-body {
+      padding: 1.25rem;
+      font-size: 14px;
+      line-height: 1.75;
+      color: #333;
+      white-space: pre-wrap;
+      font-family: Georgia, serif;
+    }
+
+    .preview-meta {
+      border-top: 1px solid #eee;
+      padding: 0.75rem 1.25rem;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      color: #888;
+    }
+
+    .preview-meta strong { color: #555; }
+
+    .note {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      color: #777;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .note a { color: #c0392b; }
+
+    #name-in-preview {
+      color: #c0392b;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="badge">Take Action</div>
+    <h1>Send Your Message to the School Board</h1>
+    <p class="subtitle">
+      Thank you for signing the petition! Now send a personal email directly to the ISD 709 School Board — it only takes 30 seconds.
+    </p>
+
+    <div class="form-card">
+      <div class="form-group">
+        <label for="full-name">Your Full Name</label>
+        <input type="text" id="full-name" placeholder="e.g. Jane Smith" oninput="updatePreview()" />
+      </div>
+      <button class="send-btn" onclick="sendEmail()">
+        Open Email to School Board &rarr;
+      </button>
+    </div>
+
+    <div class="preview-section">
+      <div class="preview-header">
+        <span class="preview-dot"></span>
+        <span>Email Preview</span>
+      </div>
+      <div class="preview-body" id="preview-text">Dear ISD 709 School Board Members,
+
+I am writing to bring attention to an issue that prevents equal access to education for students in our community. Families moving from one home to another within the Duluth school district must complete burdensome paperwork to update their address, which means their children cannot receive school transportation immediately after a move. As a result, students who cannot get to school fall behind.
+
+Duluth's housing cost crisis forces many families to move frequently, disrupting their lives and stability. The burden is even greater for students with disabilities and their families.
+
+ISD 709 has been asked to address this issue and has been provided with simple solutions. While the school administration has made some attempts, those efforts have not helped — and in some cases have added additional requirements, making things harder for families. The administration and board continue to find reasons to avoid making the changes needed to support families in transition.
+
+I urge you to change ISD 709 policy so that students moving from one address to another within Duluth have immediate access to transportation and school.
+
+Sincerely,
+<span id="name-in-preview">Your Name</span></div>
+      <div class="preview-meta">
+        <strong>To:</strong> schoolboard@isd709.org &nbsp;&nbsp;
+        <strong>Subject:</strong> Make transportation easier for students and families!
+      </div>
+    </div>
+
+    <p class="note">
+      Clicking the button will open your email app with this message pre-filled.<br/>
+      You can edit it before sending.
+    </p>
+
+  </div>
+
+  <script>
+    function updatePreview() {
+      var name = document.getElementById('full-name').value.trim();
+      var el = document.getElementById('name-in-preview');
+      el.textContent = name !== '' ? name : 'Your Name';
+    }
+
+    function sendEmail() {
+      var name = document.getElementById('full-name').value.trim();
+      if (!name) {
+        alert('Please enter your full name so it appears in the email signature.');
+        document.getElementById('full-name').focus();
+        return;
+      }
+
+      var to = 'schoolboard@isd709.org';
+      var subject = 'Make transportation easier for students and families!';
+      var body =
+        'Dear ISD 709 School Board Members,\n\n' +
+        'I am writing to bring attention to an issue that prevents equal access to education for students in our community. Families moving from one home to another within the Duluth school district must complete burdensome paperwork to update their address, which means their children cannot receive school transportation immediately after a move. As a result, students who cannot get to school fall behind.\n\n' +
+        "Duluth's housing cost crisis forces many families to move frequently, disrupting their lives and stability. The burden is even greater for students with disabilities and their families.\n\n" +
+        'ISD 709 has been asked to address this issue and has been provided with simple solutions. While the school administration has made some attempts, those efforts have not helped \u2014 and in some cases have added additional requirements, making things harder for families. The administration and board continue to find reasons to avoid making the changes needed to support families in transition.\n\n' +
+        'I urge you to change ISD 709 policy so that students moving from one address to another within Duluth have immediate access to transportation and school.\n\n' +
+        'Sincerely,\n' +
+        name;
+
+      window.location.href = 'mailto:' + to +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+    }
+  </script>
+</body>
+</html>
